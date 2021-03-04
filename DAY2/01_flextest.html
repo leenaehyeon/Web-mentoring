@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <title>웹 페이지 연습</title>
+        <link rel="stylesheet" href="./01_flextest.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    </head>
+    <body>
+        <header id="navibar">
+            <!-- logo -->
+            <div id="nav_logo">
+                <a><i class="fas fa-eye fa-2x"></i></a>
+                <!-- CSS 에서도 크기 조절 가능 -->
+                <a href="#">TEST</a>
+            </div>
+            <!-- menu -->
+            <ul id="nav_menu" class="">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">GALLERY</a></li>
+                <li><a href="#">ORDER</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+            <!-- icon -->
+            <ul id="nav_icons" class="">
+                <li><a href="www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="www.instargam.com"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            </ul>
+
+            <a href="#" class="navibar_toggleBtn">
+                <i class="fas fa-bars"></i>
+            </a>
+        </header>
+    </body>
+</html>
+
+<script>
+    const toggleBtn = document.querySelector('.navibar_toggleBtn');
+    const menu = document.querySelector("#nav_menu");
+    const icons = document.querySelector("#nav_icons");
+
+    toggleBtn.addEventListener('click', ()=> {
+        console.log('AAA');
+        console.log(menu)
+        menu.classList.toggle('active');
+        icons.classList.toggle('active');
+
+    })
+    console.log(toggleBtn);
+
+</script>

@@ -1,0 +1,14 @@
+<script>
+    // NEW
+    // 오브젝트 만들 때 {} 말고 NEW 가지고도 만들 수 있다.
+
+    function User(name,age){
+        // this = {};
+        this.key = name;
+        this.aging = age;
+        // return this;
+    }
+    let user = new User('짱구',5);
+    let user2 = new User('짱아',3);
+    console.log(user,user2)
+</script>

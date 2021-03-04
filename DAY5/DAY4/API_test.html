@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Bitcoin Price </title>
+    
+    </head>
+    <body>
+        Bitcoin Opening Price : <span class="opening_price">0 </span>won
+    </body>
+</html>
+
+<script>
+    // API ::   특정한 기능을 만들어둔 것.
+    // 특정한 기능을 사용하고 싶은 사용자는, API를 호출(벨을 클릭)하여 사용한다.
+    
+    // js 는 병렬 실행 -> 동시 실행 되는 것을 방지하는 방법
+    // 1.  Promise   :: .then() / ~~ .catch()
+    // 2. await, async
+    // 빗썸에서 비트코인 시세 받아온 다음 보여주게끔
+
+    let opening_price = document.querySelector('.opening_price');
+    
+
+    // AJAX  통신 : 페이지 이동 없이 브라우저에서 http통신을 하기 위한 방법. but fetch  는 브라우저 별 지원 불가할때도 있음
+    fetch('https://api.bithumb.com/public/ticker/ALL_KRW')
+         .then(function(response){
+             return response.json();  //3. response 바디의 텍스트값을 json  으로 바꿔ㅓ서 다음  then한테 넘겨줌.(console 찍어서 확인해보니 promise로 나옴, 그럴대는 꼭 .then으로 받아야함)
+//             console.log(response.json());
+})
+        .then(function(result){  //4.result 라는 변수가 json 으로 바뀐 값을 받음.
+            console.log(result['data']['BTC']['opening_price']);
+            opening_price.textContent = result['data']['BTC']['opening_price'];
+        })
+</script>

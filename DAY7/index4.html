@@ -1,0 +1,22 @@
+<script>
+    // let user = { 'name' : 'naehyeon'}
+    // let user2 = user; // call by ref ( 필기 참고하기) f0da0af 
+    // user2.name = 'minyoung';
+    // console.log(user2,user);
+
+    //object 복사
+    let fruitList = {
+        'apple' : 3000,
+        'banana' : 5000,
+        'orange' : 6000
+    };
+
+    let copyfruitList = {}
+    for (let key in fruitList){
+        console.log (key, fruitList[key]);
+        copyfruitList[key] = fruitList[key]; //call by value
+    }
+    console.log(copyfruitList)
+    copyfruitList.apple = 4000;
+    console.log(fruitList);
+</script>

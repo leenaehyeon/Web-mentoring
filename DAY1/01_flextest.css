@@ -1,0 +1,38 @@
+body{
+    margin:0;
+}
+a{
+    text-decoration:none;
+    color:#f0f4f4;
+}
+
+#navibar{
+    background-color:darkblue;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 15px;
+}
+#nav_logo{
+    font-size:30px;
+}
+#nav_menu{
+    display:flex;
+    list-style:none;
+}
+#nav_menu li{
+    padding: 8px 12px;    
+}
+#nav_menu li:hover{
+    background-color: #d49446;
+    border-radius: 6px;
+}
+#nav_icons{
+    list-style:none;
+    display:flex;
+
+}
+#nav_icons li{
+    padding: 8px 12px;
+}
+

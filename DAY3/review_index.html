@@ -1,0 +1,78 @@
+<!DOCTYPE = html>
+<html>
+    <head>
+        <title> Guessing Game</title>    
+    </head>
+    <body>
+        <p class="guesses"></p>
+        <p class="lastResult"></p>
+        <p class="lowOrHi"></p>
+        <label for="guessField"> Enter a guess : </label>
+        <input type="text" id="guessField" class="guessField">
+        <input type="submit" id="guessSubmit" class="guessSubmit">
+        <input type="button" id="reset" class="resetBtn">
+    </body>
+</html>
+<script>
+    let RandomNumber = Math.floor(Math.random()*100) +1;
+
+    let guesses = document.querySelector('.guesses');
+    let lastResult = document.querySelector('.lastResult');
+    let lowOrHi = document.querySelector('.lowOrHi');
+
+    let guessSubmit = document.querySelector('.guessSubmit');
+    let guessField = document.querySelector('.guessField');
+    let resetBtn = document.querySelector('.resetBtn');
+
+    let guessCount = 1;
+    
+    //function 함수
+    function checkGuess(){
+        let userGuess = Number(guessField.value);
+
+        if (isNaN(userGuess)){
+            alert ('!!숫자만 입력 해주세요!!')
+            return false;
+        }
+
+        if (guessCount ===1){
+            guesses.textContent = "Previous guesses : " // 왜 guesses  를 잡고 텍스트를추가하는거지? 그냥 텍스트컨텍스트만 해보니까 안됨
+        }
+        guesses.textContent = guesses.textContent + userGuess + ' '
+        
+
+        if (userGuess === RandomNumber){
+            lastResult.textContent ="Congrats! you got it";
+            guessField.disabled = true;
+            lowOrHi.textContent = '';
+
+        }
+        else {
+            lastResult.textContent = "WRONG"
+        }      
+        if (userGuess > RandomNumber){
+            lowOrHi.textContent = "TOO HIGH";
+        } else if (userGuess < RandomNumber){
+            lowOrHi.textContent = "TOO LOW";
+        }
+    
+    }
+
+        guessCount++;
+
+        guessField.value = '';
+
+    if (guessCount == 10){
+        lastResult.textContent = "GAMEOVER";
+        guessField.disabled = true;
+
+    } 
+
+
+
+    guessSubmit.addEventListener('click', checkGuess);
+
+
+
+    
+</script>
